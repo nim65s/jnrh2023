@@ -6,8 +6,8 @@ so that
       h(q) = target
       forall obstacles o,    (e_p - e_c)' e_A (e_p-e_c) >= 1
 with h(q) the forward geometry (position of end effector) to be at target position,
-e_A,e_c the ellipse matrix and center in the attached joint frame e_, and e_p = oMe^-1 o_p
-the position of the obstacle point p in frame e_. 
+e_A,e_c the ellipse matrix and center in the attached joint frame e_, and e_p = oMe^-1
+o_p the position of the obstacle point p in frame e_.
 
 The following tools are used:
 - the ur10 model (loaded by example-robot-data)
@@ -26,7 +26,6 @@ import example_robot_data as robex
 import numpy as np
 import pinocchio as pin
 from pinocchio import casadi as cpin
-
 from utils.meshcat_viewer_wrapper import MeshcatVisualizer
 
 # Change numerical print
@@ -107,8 +106,8 @@ viz.display(robot.q0)
 # %jupyter_snippet ellipses_2
 for e in ellipses:
     e.id = robot.model.getJointId(e.name)
-    l, P = np.linalg.eig(e.A)
-    e.radius = 1 / l**0.5
+    le, P = np.linalg.eig(e.A)
+    e.radius = 1 / le**0.5
     e.rotation = P
     e.placement = pin.SE3(P, e.center)
 # %end_jupyter_snippet

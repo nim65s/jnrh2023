@@ -29,13 +29,13 @@ def generate(ipynb, folder):
                 if any([f"# %{hashtag}" in line for hashtag in hashtags]):
                     if dest is not None:
                         raise SyntaxError(
-                            f"%{hashtags[0]} block open twice at line {line_number + 1}"
+                            f"%{hashtags[0]} block open twice at line {line_number+1}"
                         )
                     dest = generated / f"{filename.stem}_{line.split()[2]}"
                 elif any([line.strip() == f"# %end_{hashtag}" for hashtag in hashtags]):
                     if dest is None:
                         raise SyntaxError(
-                            f"%{hashtags[0]} block before open at line {line_number + 1}"
+                            f"%{hashtags[0]} block before open at line {line_number+1}"
                         )
                     with dest.open("w") as f_out:
                         f_out.write("".join(content))
@@ -46,8 +46,10 @@ def generate(ipynb, folder):
                             data["cells"][cell_number]["source"] = [
                                 f"# %load {dest}\n"
                             ] + content
-                        # if f'%do_not_load {dest}' in cell['source'][0]:
-                        #    data['cells'][cell_number]['source'] = [f'%do_not_load {dest}\n']
+                        # if f"%do_not_load {dest}" in cell["source"][0]:
+                        # data["cells"][cell_number]["source"] = [
+                        # f"%do_not_load {dest}\n"
+                        # ]
                     content = []
                     dest = None
                 elif dest is not None:

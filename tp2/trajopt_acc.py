@@ -32,7 +32,6 @@ import example_robot_data as robex
 import numpy as np
 import pinocchio as pin
 from pinocchio import casadi as cpin
-
 from utils.meshcat_viewer_wrapper import MeshcatVisualizer
 
 # Change numerical print
@@ -172,7 +171,8 @@ error_tool = casadi.Function(
 # %jupyter_snippet helper_contact
 # Sym graph for the contact constraint and Baugart correction terms
 # Works for both 3D and 6D contacts.
-# Uses the contact list <contacts> where each item must have a <name>, an <id> and a <type> field.
+# Uses the contact list <contacts> where each item must have a <name>, an <id> and a
+# <type> field.
 dpcontacts = {}  # Error in contact position
 vcontacts = {}  # Error in contact velocity
 acontacts = {}  # Contact acceleration
@@ -254,7 +254,9 @@ for t in range(T):
 # Define the contact constraints
 for t in range(T):
     for c in contacts:
-        # correction = Kv* vcontacts[c.name](var_xs[t]) + Kp * dpcontacts[c.name](var_xs[t])
+        # correction = Kv * vcontacts[c.name](var_xs[t]) + Kp * dpcontacts[c.name](
+        # var_xs[t]
+        # )
         correction = cbaumgart[c.name](var_xs[t])
         opti.subject_to(acontacts[c.name](var_xs[t], var_as[t]) == -correction)
 # %end_jupyter_snippet

@@ -17,7 +17,7 @@ with:
    q^* an arbitrary reference configuration
    integral a numerical integration step (Euler implicit) for the acceleration
    alpha(x,a) the acceleration of the tip of the robot (3d / 6d cartesian quantity)
-   baumgart(x,K) is a corrector for the contact dynamics, with K its stifness parameters.
+   baumgart(x,K) corrector for the contact dynamics, with K its stifness parameters
    and aba(q,v,tau) the forward dynamics using ABA algorithm.
 
 The following tools are used:

@@ -12,10 +12,11 @@ The following tools are used:
 - the IpOpt solver wrapped in casadi
 
 The test leads to Nan at first iteration of IpOpt, likely due to an improper derivation
-of the log function. This error is sensitive: change a little bit the target and everything
-comes back to work.
+of the log function. This error is sensitive: change a little bit the target and
+everything comes back to work.
 Two targets are provided: MsaneTarget works, MfailureTarget don't. 
-Change anything in MfailureTarget (angle or axis), and it is back to normal functionning.
+Change anything in MfailureTarget (angle or axis), and it is back to normal
+functionning.
 """
 
 import casadi

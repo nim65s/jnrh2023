@@ -17,7 +17,7 @@ with:
    q^* an arbitrary reference configuration
    integral a numerical integration step (Euler implicit) for the acceleration
    alpha(x,a) the acceleration of the tip of the robot (3d / 6d cartesian quantity)
-   baumgart(x,K) is a corrector for the contact dynamics, with K its stifness parameters.
+   baumgart(x,K) a corrector for the contact dynamics, with K its stifness parameters.
    and cdyn(q,v,tau ; contacts) is the forward constrained dynamics, given the contacts.
 
 The following tools are used:
@@ -35,7 +35,6 @@ import example_robot_data as robex
 import numpy as np
 import pinocchio as pin
 from pinocchio import casadi as cpin
-
 from utils.meshcat_viewer_wrapper import MeshcatVisualizer
 
 # Change numerical print

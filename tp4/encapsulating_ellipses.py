@@ -18,6 +18,7 @@ with A,c the matrix representation of the ellipsoid A=exp(w)@diag(1/r**2)@exp(w)
 import casadi
 import example_robot_data as robex
 import numpy as np
+
 # %jupyter_snippet import
 import pinocchio as pin
 from pinocchio import casadi as cpin

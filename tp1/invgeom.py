@@ -18,6 +18,7 @@ The following tools are used:
 import time
 import unittest
 
+import casadi  # noqa
 import example_robot_data as robex
 import meshcat
 import numpy as np

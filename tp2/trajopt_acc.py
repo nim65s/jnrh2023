@@ -32,6 +32,7 @@ import example_robot_data as robex
 import numpy as np
 import pinocchio as pin
 from pinocchio import casadi as cpin
+
 from utils.meshcat_viewer_wrapper import MeshcatVisualizer
 
 # Change numerical print

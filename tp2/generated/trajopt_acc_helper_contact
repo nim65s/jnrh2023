@@ -1,6 +1,7 @@
 # Sym graph for the contact constraint and Baugart correction terms
 # Works for both 3D and 6D contacts.
-# Uses the contact list <contacts> where each item must have a <name>, an <id> and a <type> field.
+# Uses the contact list <contacts> where each item must have a <name>, an <id> and a
+# <type> field.
 dpcontacts = {}  # Error in contact position
 vcontacts = {}  # Error in contact velocity
 acontacts = {}  # Contact acceleration
